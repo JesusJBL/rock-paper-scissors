@@ -6,6 +6,23 @@
 </head>
 <body>
     <script>
+        function getComputerChoice() {
+           const randomOption = Math.floor(Math.random()*3);
+            if (randomOption === 0) {
+                return('Rock');
+            }
+
+            else if (randomOption === 1) {
+                return('Paper');
+
+            }
+
+            else if (randomOption === 2) {
+                return('Scissors');
+
+            }
+        }
+
     </script>
 </body>
 </html>
