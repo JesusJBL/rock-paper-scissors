@@ -23,47 +23,70 @@
             }
         }
 
-        function playRound(playerSelection, computerSelection) {
+        function playRound(playerSelection, computerSelection, playerPoints, computerPoints) {
             if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'Paper') {
+                ++computerPoints
                 let message = 'You Lose! Paper beats rock!';
                 return(message);
             }
 
             else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'Scissors') {
+                ++computerPoints
                 let message = 'You Lose! Scissors beats paper!';
                 return(message);
             }
 
             else if (playerSelection.toLowerCase() == 'scissors' & computerSelection == 'Rock') {
+                ++computerPoints
                 let message = 'You Lose! Rock beats scissors!';
                 return(message);
             }
 
             else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'Scissors') {
+                ++playerPoints;
                 let message = 'You Win! Rock beats scissors!';
                 return(message);
             }
 
             else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'Rock') {
+                ++playerPoints;
                 let message = 'You Win!! Paper beats rock!';
                 return(message);
             }
 
             else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'Paper') {
+                ++playerPoints;
                 let message = 'You Win! Scissors beats paper!';
                 return(message);
             }
 
             else if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+                ++playerPoints;
+                ++computerPoints;
                 let message = 'Draw!';
                 return(message);
             }
 
         }
 
-            const playerSelection = 'rOck';
-            const computerSelection = getComputerChoice();
-            console.log(playRound(playerSelection, computerSelection));
+            function game() {
+                for (let i = 0; i < 5; i++) {
+                    const playerSelection = prompt('Rock, paper or scissors? What will you choose?');
+                    const computerSelection = getComputerChoice();
+                    console.log(playRound(playerSelection, computerSelection, playerPoints, computerPoints));
+                }
+                if (playerPoints > computerPoints) {
+                    console.log("Congratulations, you won!");
+                }
+
+                else {
+                    console.log("You've lost. Maybe next time!");
+                }
+            }
+    
+            let playerPoints=0;
+            let computerPoints=0;
+            console.log(game());
     </script>
 </body>
 </html>
