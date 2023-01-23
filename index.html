@@ -68,25 +68,30 @@
             }
 
         }
+        
+        const rock = document.createElement('button')
+        rock.innerText("Rock")
+        rock.addEventListener('click', () => {
+            alert(playRound(rock))
+        }) 
 
-            function game() {
-                for (let i = 0; i < 5; i++) {
-                    const playerSelection = prompt('Rock, paper or scissors? What will you choose?');
-                    const computerSelection = getComputerChoice();
-                    console.log(playRound(playerSelection, computerSelection, playerPoints, computerPoints));
-                }
-                if (playerPoints > computerPoints) {
-                    console.log("Congratulations, you won!");
-                }
 
-                else {
-                    console.log("You've lost. Maybe next time!");
-                }
-            }
-    
-            let playerPoints=0;
-            let computerPoints=0;
-            console.log(game());
+        const paper = document.createElement('button')
+        paper.innerText("Paper")
+        paper.addEventListener('click', () => {
+            alert(playRound(paper))
+        }) 
+
+
+        const scissors = document.createElement('button')
+        scissors.innerText("Scissors")
+        scissors.addEventListener('click', () => {
+            alert(playRound(scissors))
+            
+        }) 
+
+
+
     </script>
 </body>
 </html>
