@@ -5,7 +5,15 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <div>Container</div>
+    
     <script>
+        let playerPoints=0;
+        let computerPoints=0;
+
         function getComputerChoice() {
            const randomOption = Math.floor(Math.random()*3);
             if (randomOption === 0) {
@@ -23,7 +31,7 @@
             }
         }
 
-        function playRound(playerSelection, computerSelection, playerPoints, computerPoints) {
+        function playRound(playerSelection, computerSelection) {
             if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'Paper') {
                 ++computerPoints
                 let message = 'You Lose! Paper beats rock!';
@@ -68,30 +76,29 @@
             }
 
         }
+
+            function game() {
+                const computerSelection = getComputerChoice();
+                const container = document.querySelector('div');
+
+                const rock = document.querySelector('#rock');
+                rock.addEventListener('click', () => {
+                    container.textContent = playRound('rock', computerSelection);
+                });
+
+                const paper = document.querySelector('#paper');
+                paper.addEventListener('click', () => {
+                    container.textContent = playRound('paper', computerSelection);
+                });
+
+                const scissors = document.querySelector('#scissors');
+                scissors.addEventListener('click', () => {
+                    container.textContent = playRound('scissors', computerSelection)
+                });
+            }
+
         
-        const rock = document.createElement('button')
-        rock.innerText("Rock")
-        rock.addEventListener('click', () => {
-            alert(playRound(rock))
-        }) 
-
-
-        const paper = document.createElement('button')
-        paper.innerText("Paper")
-        paper.addEventListener('click', () => {
-            alert(playRound(paper))
-        }) 
-
-
-        const scissors = document.createElement('button')
-        scissors.innerText("Scissors")
-        scissors.addEventListener('click', () => {
-            alert(playRound(scissors))
-            
-        }) 
-
-
-
+            console.log(game());
     </script>
 </body>
 </html>
