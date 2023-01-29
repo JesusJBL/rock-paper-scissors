@@ -17,6 +17,7 @@
         let playerPoints=0;
         let computerPoints=0;
 
+        //Randomizes computer choice everytime it's called
         function getComputerChoice() {
            const randomOption = Math.floor(Math.random()*3);
             if (randomOption === 0) {
@@ -34,6 +35,7 @@
             }
         }
 
+        //Plays a round, decides a winner and adds a point everytime it's called
         function playRound(playerSelection, computerSelection) {
             if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'Paper') {
                 ++computerPoints
@@ -72,8 +74,6 @@
             }
 
             else if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
-                ++playerPoints;
-                ++computerPoints;
                 let message = 'Draw!';
                 return(message);
             }
@@ -98,7 +98,7 @@
                     let computerSelection = getComputerChoice();
                     container.textContent = playRound('paper', computerSelection);
                     scores.textContent = gameScore(playerPoints, computerPoints);
-                    win.textContent = checForkWin(playerPoints, computerPoints);
+                    win.textContent = checkForWin(playerPoints, computerPoints);
                 });
 
                 const scissors = document.querySelector('#scissors');
@@ -109,20 +109,20 @@
                     win.textContent = checkForWin(playerPoints, computerPoints);
                 });
 
-                const restart = document.querySelector('restart')
+                const restart = document.querySelector('#restart')
                 restart.addEventListener('click', () => {
-                    let playerPoints = 0;
-                    scores.textContent = playerPoints;
+                    playerPoints = 0;
+                    computerPoints = 0;
+                    scores.textContent = gameScore(playerPoints, computerPoints)
                 });
             }
             
 
             function gameScore (playerScore, computerScore) {
                     return("Your score: " + playerScore + " " + "Computer score: " + computerScore)
-                }
+            }
 
             function checkForWin (playerScore, computerScore) {
-                const restart = document.querySelector('restart')
                 if (playerScore >= 5) {
                     return("You've won the game! Would you like to play again?")
                 }
