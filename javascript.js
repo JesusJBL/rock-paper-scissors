@@ -62,7 +62,7 @@ let computerPoints=0;
         }
 
             function game() {
-                const container = document.querySelector('#container');
+                const round = document.querySelector('#round');
                 const scores = document.querySelector('#scores');
                 const win = document.querySelector('#win');
                 
@@ -70,7 +70,7 @@ let computerPoints=0;
                 const rock = document.querySelector('#rock');
                 rock.addEventListener('click', () => {
                     let computerSelection = getComputerChoice();
-                    container.textContent = playRound('rock', computerSelection);
+                    round.textContent = playRound('rock', computerSelection);
                     scores.textContent = gameScore(playerPoints, computerPoints);
                     win.textContent = checkForWin(playerPoints, computerPoints);
                 });
@@ -78,7 +78,7 @@ let computerPoints=0;
                 const paper = document.querySelector('#paper');
                 paper.addEventListener('click', () => {
                     let computerSelection = getComputerChoice();
-                    container.textContent = playRound('paper', computerSelection);
+                    round.textContent = playRound('paper', computerSelection);
                     scores.textContent = gameScore(playerPoints, computerPoints);
                     win.textContent = checkForWin(playerPoints, computerPoints);
                 });
@@ -86,7 +86,7 @@ let computerPoints=0;
                 const scissors = document.querySelector('#scissors');
                 scissors.addEventListener('click', () => {
                     let computerSelection = getComputerChoice();
-                    container.textContent = playRound('scissors', computerSelection);
+                    round.textContent = playRound('scissors', computerSelection);
                     scores.textContent = gameScore(playerPoints, computerPoints);
                     win.textContent = checkForWin(playerPoints, computerPoints);
                 });
