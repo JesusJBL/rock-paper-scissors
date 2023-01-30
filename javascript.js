@@ -95,7 +95,9 @@ let computerPoints=0;
                 restart.addEventListener('click', () => {
                     playerPoints = 0;
                     computerPoints = 0;
+                    round.textContent = "";
                     scores.textContent = gameScore(playerPoints, computerPoints)
+                    win.textContent = "";
                 });
             }
             
